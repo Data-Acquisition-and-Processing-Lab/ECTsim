@@ -1,0 +1,11 @@
+*.mat
+*.fig
+*.tiff
+*.png
+*.jpg
+*.gif
+*.asv
+*.csv
+.DS_Store
+*.txt
+*.bak
