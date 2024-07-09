@@ -1,5 +1,6 @@
-# ECTsim
-ECTsim is a MATLAB toolbox for numerical modeling and image reconstruction in electrical tomography developed at Warsaw University of Technology
+![ECTsim](https://ectsim.ire.pw.edu.pl/images/logo.png)
+
+MATLAB toolbox for numerical modeling and image reconstruction in electrical tomography developed at Warsaw University of Technology
 
 ## Key Authors
 - Dr. Damian Wanta
