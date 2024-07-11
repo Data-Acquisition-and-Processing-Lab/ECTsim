@@ -1,15 +1,32 @@
-%% downscaleModel 
-% Interpolates model to a coarser mesh used in inverse
-% problem. Decimation. 
-% Sensitivity for complex permittivity distribution in the model.
-% Complex permittivity distribution in object.
+%% downscaleModel - Interpolates a model to a coarser mesh used in the inverse problem.
 %
-% *usage:* |[model] = downscaleModel(mesh, model)|
+% This function interpolates a numerical model to a coarser mesh used in the inverse problem.
+% The process involves decimation and sensitivity adjustment for the complex permittivity
+% distribution within the model.
 %
-% * _mesh_ - inverse problem mesh
-% * _model_ - structure with a numerical model description
+% Usage:
+%   model = downscaleModel(mesh, model)
 %
-% footer$$
+% Inputs:
+%   mesh  - Inverse problem mesh.
+%   model - Structure with a numerical model description.
+%
+% Outputs:
+%   model - Updated model structure interpolated to the coarser mesh.
+%
+% Example:
+%   % Assume mesh and model are already initialized
+%   model = downscaleModel(mesh, model);
+%   % This will interpolate the model to the coarser inverse problem mesh.
+%
+% See also: upscaleModel
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
+
 function [invp] = downscaleModel(mesh, model)
 fprintf('Downscaling ...... '); tic;
 

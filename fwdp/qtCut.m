@@ -1,10 +1,36 @@
-%% qtCut 
-% Function for single cut in quadtree structure
+%% qtCut - Performs a single cut in a quadtree structure.
 %
-% *usage:* qt = qtCut(QT, A, param, pixMin, pixMax)
+% This function is used primarily within a recursive decomposition algorithm
+% (like qtDecom) to divide a matrix based on a measure of non-uniformity, 
+% dynamically adjusting the mesh resolution between specified pixel size limits.
 %
-% footer$$
-
+% Usage:
+%   qt = qtCut(QT, A, S, param, pixMin, pixMax)
+%
+% Inputs:
+%   QT     - Quadtree mesh structure.
+%   A      - Full matrix that needs to be cut.
+%   S      - Temporary matrix that is part of A.
+%   param  - Measure of non-uniformity, determining the cutting criteria.
+%   pixMin - Minimum pixel size in the mesh.
+%   pixMax - Maximum pixel size in the mesh.
+%
+% Outputs:
+%   qt     - Updated quadtree mesh structure after the cut.
+%
+% Example:
+%   % Assume QT is already initialized and A, S are defined
+%   param = 0.05;  % Define non-uniformity threshold
+%   pixMin = 1;
+%   pixMax = 5;
+%   qt = qtCut(QT, A, S, param, pixMin, pixMax);
+%   % This will perform a cut on A using the specified parameters and update QT.
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function [qt, S] = qtCut(qt, A, S, param, pixMin, pixMax)
     temp = qt;

@@ -1,23 +1,44 @@
-%% defineWorkspace
-% Function initiate the work on a model. The imput arguments are used to
-% describe the size of the area which the model will be constructed in.
-% Values of width and height should be in mm.
-% Function creates global variables: 
+%% defineWorkspace - Initiates work on a model.
 %
-% * cell array _Elements_ that stores all created simple and complex elements; 
-% * cell array _Sensor_ that stores elements that make up the final model of the sensor.
+% This function initializes a workspace for constructing a model. The input arguments
+% describe the size of the area in which the model will be constructed. Values for
+% width and height should be provided in millimeters. The function creates global
+% variables to store elements of the model.
 %
-% # nargin =2 ->2D
-% # nargin =3 ->3D
+% Usage:
+%   model = defineWorkspace(width, height, depth)
 %
-% *usage:* |[model] = defineWorkspace(width, height, (depth))|
+% Inputs:
+%   width  - Workspace width in millimeters.
+%   height - Workspace height in millimeters.
+%   depth  - Workspace depth in millimeters (optional for 3D).
 %
-% * _model_     - structure with a numerical model description
-% * _width_        -  workspace width
-% * _height_       -  workspace height
-% * _depth_        -  workspace depth
+% Outputs:
+%   model - Structure with a numerical model description.
 %
-% footer$$
+% Global Variables:
+%   Elements - Cell array that stores all created simple and complex elements.
+%   Sensor   - Cell array that stores elements making up the final sensor model.
+%
+% Notes:
+%   nargin = 2 for 2D models.
+%   nargin = 3 for 3D models.
+%
+% Example:
+%   % Define a 2D workspace
+%   model = defineWorkspace(100, 200);
+%   % Define a 3D workspace
+%   model = defineWorkspace(100, 200, 50);
+%   % This will initialize a workspace with the specified dimensions.
+%
+% See also: defineMesh
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
+
 function [model]=defineWorkspace(varargin)
 
 

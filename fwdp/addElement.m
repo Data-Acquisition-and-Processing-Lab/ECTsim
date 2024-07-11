@@ -1,27 +1,35 @@
-%% addElement
-% addElement adds an element of given name to a numerical model ('Sensor' cell array). 
-% The element must exist in the 'Elements' cell array. 
-% This means it will be included in the final model and simulation.
-% It prevents from adding element that shares grid points with any other
-% element in the numerical model.
+%% addElement - Adds an element with a given name to a numerical model.
 %
-% *usage:* |[model] = addElement(model,'el_name',permittivity,varargin)|
-% 
-% * _model_     - structure with a numerical model description
-% * _elname_    - a name of the element 
-% * _permittivity_        - relative permittivity value (>=1)
-% * _varargin_   
-% *             - conductivity value [S/m]
-% *             - potential value [V] applied if boundary conditions are set on this element; 
-% *             - excitation potential [V] if the potential is switched on the electrode
-% *             - display mode: 'silent' or 'verbose'
+% This function adds an element with a specified name to the 'Sensor' cell array within a numerical model.
+% The element must exist in the 'Elements' cell array to be included in the final model and simulation.
+% The function ensures that no element sharing grid points with any other element is added.
 %
-% example: to add the element (wihout specifing voltage) to the model without a message
-%          model=addElement(model,'circle',plastic_eps,plastic_sigma,[],[],0);
+% Usage:
+%   model = addElement(model, el_name, permittivity, varargin)
 %
-% footer$$
+% Inputs:
+%   model        - Structure with a numerical model description.
+%   el_name      - Name of the element to be added.
+%   permittivity - Relative permittivity value (>=1).
+%   varargin     - Optional parameters including:
+%                  conductivity - Conductivity value applied if boundary conditions are set on this element.
+%                  potential    - Potential value applied if boundary conditions are set on this element.
+%                  excitation   - Excitation potential if the potential is switched on the electrode.
+%
+% Outputs:
+%   model - Updated model structure with the added element.
+%
+% Example:
+%   % Assume model is already initialized and element exists in 'Elements' cell array
+%   model = addElement(model, 'Element1', 2.5, 0.01);
+%   % This will add 'Element1' with the specified permittivity and conductivity.
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
-%%
 function [model] = addElement(model, name, permittivity, varargin)
 
 

@@ -1,18 +1,31 @@
-%% qtComp
-% qtcomp generates a regular matrix from a sparse quadtree mesh (interpolation);
-% converts data from an irregular grid to a regular Cartesian grid;        
+%% qtComp - Recreates a full matrix from a quadtree sparse with new chosen values.
 %
-% *usage:*     |[fullMat] = qtComp(model.qt,varargin)|
+% This function takes a sparse representation of a matrix, typically stored
+% in a quadtree format, and reconstructs a full, uniform matrix from it. This
+% is useful for operations that require a full matrix representation after
+% manipulations or calculations have been done in a more compressed form.
 %
-% * _model.qt_  - a quadtree structure that describes an irregular mesh
-% * _varargin_  
-% * _values_    - a vector of voltage or sensitivity data (samples in non-uniform
-% mesh)
-% * _scaled_    - the sensitivity map needs to be scaled before displaying
+% Usage:
+%   fullMat = qtComp(QT, varargin)
 %
-% * _fullMat_   - matrix (uniform sampling)
+% Inputs:
+%   QT    - Structure with a numerical model description necessary to create a quadtree.
+%   varargin - Additional parameters including the nonuniform mesh to be
+%              represented in a uniform mesh.
 %
-% footer$$
+% Outputs:
+%   fullMat  - The resulting full, uniform matrix.
+%
+% Example:
+%   fullMat = qtComp(model.qt,model.qt.eps,0);
+%   % This example demonstrates how to call qtComp with additional parameters
+%   % that modify how the full matrix is constructed from the quadtree.
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function fullMat = qtComp(QT,varargin)
     %  Method needs:

@@ -1,24 +1,43 @@
-%% newSimpleElement
-% Function newSimpleElement creates a new solid geometry element.
-% The element is added to the 'Elements' cell array in the Numerical model.
-% Checks whether the name has been used before and chooses the approperiate function for calculating the geometry.
+%% newSimpleElement - Creates a new solid geometry element and adds it to the 'Elements' cell array.
 %
-% *usage:* |model = newSimpleElement(model, 'cylinder', 'test_element1', [0, 0, 0], [0, 45, 15], [50, 50, 50], 0, 270, 25);|
+% This function creates a new solid geometry element and adds it to the 'Elements' cell array
+% in the numerical model. It checks whether the name has already been used and selects the 
+% appropriate function for calculating the geometry.
 %
+% Usage:
+%   model = newSimpleElement(model, shape, name, coord, angle, dimensions, bounding_angle1, bounding_angle2, ring_width)
 %
-% * _model_ - structure with a numerical model description
-% * _shape_ - shape string, choice of: "ellipse", "rectangle", "ellipsoid", "cuboid" and "cylinder"
-% * _name_  - a name of an element to be created
-% * _coord_ - coordinates of the centre of the shape. Dimension has to be equal to the dimension of the model
-% * _angle_ - rotation of the created element
-% * _dimensions_ - dimentions of the object in x, y and for 3d objects z axis
+% Inputs:
+%   model           - Structure with a numerical model description.
+%   shape           - Shape of the element, options include: 'ellipse', 'rectangle', 'ellipsoid', 'cuboid', and 'cylinder'.
+%   name            - Name of the new element.
+%   coord           - Coordinates of the center of the shape, matching the dimensionality of the model.
+%   angle           - Rotation angle of the element.
+%   dimensions      - Dimensions of the object along the x, y, and z axes (for 3D objects).
+%   bounding_angle1 - Start angle for an ellipse segment; default is 0.
+%   bounding_angle2 - End angle for an ellipse segment; default is 360.
+%   ring_width      - Width of a created ring; default creates a solid interior.
+%
+% Outputs:
+%   model - Updated model structure with the new simple element added.
+%
+% Example:
+%   % Assume model is already initialized
+%   model = newSimpleElement(model, 'cylinder', 'test_element1', [0, 0, 0], [0, 45, 15], [50, 50, 50], 0, 270, 25);
+%   % This will create a new fragment of cylindrical element named 'test_element1' with the specified parameters.
+%
+% See also: newComplexElement
 %
 % If varargin:
 % * _bounding_angle1_   - if ellipse segment, start angle; default 0
 % * _bounding_angle2_   - if ellipse segment, end angle; default 360
 % * _ring_width_        - if ring, width of the created ring. Default is 0 and creates a solid interior
 %
-% footer$$
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function [model] = newSimpleElement(model, shape, name, coordinates, angle, dimensions, varargin)
     % argument size checks

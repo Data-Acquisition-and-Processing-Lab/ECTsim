@@ -1,18 +1,31 @@
-%% withoutRepetition 
-% function converts sensitivity matrices for the minimum, maximum and object
-% from 'all measurements' to 'without repetitions';
-% number of rows is reduced by half in the sensitivity matrix;
-% 
+%% withoutRepetition - Converts sensitivity matrices from 'all measurements' to 'without repetitions'.
 %
-% *usage:* |[model] = WithoutRepetition(model, src_app_el, src_rec_el, varargin)|
+% This function converts sensitivity matrices from the 'all measurements' format to the
+% 'without repetitions' format, effectively reducing the number of rows in the sensitivity
+% matrix by half.
 %
-% _model_      
-% _varargin_  - matrices to convert; all matrices (min, max, pha) if empty 
-%               model.post.S matrix will be reduced if 'post' field is present
-%    
-% _model_ - vector with application electrode numbers
+% Usage:
+%   model = withoutRepetition(model, modelList)
 %
-% footer$$
+% Inputs:
+%   model     - Vector with application electrode numbers.
+%   modelList - List of matrices to convert; example matrices include {min, max, pha}.
+%
+% Outputs:
+%   model - Updated model structure with converted sensitivity matrices.
+%
+% Example:
+%   % Assume model and modelList are already initialized
+%   modelList = {min, max, pha};
+%   model = WithoutRepetition(model, modelList);
+%   % This will convert the sensitivity matrices in modelList to the 'without repetitions' format.
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
+
 function  model = withoutRepetition(model, modelList)
     % model.measurement_count=model.measurement_count/2;  % all measurements
     

@@ -1,16 +1,34 @@
-%% drawElectricField 
-% draws a selected component or module of E
+%% drawElectricField - Draws a selected component or modulus of the electric field.
 %
-% *usage:*    |drawElectricField(model,mode,part,comp,electrode)|
+% This function draws a selected component or modulus of the electric field from the
+% numerical model.
 %
-% * _model_   - numerical model 
-% * _mode_  -  px, mm (for 2D); slice, mpr (for 3D)
-% * _part_  - real, imag
-% * _comp_    - Ex, Ey, Em (modulus) 
-% * _electrode_    -  0 potential maps for every electrode, 
-%                    >0 only selected electrode
+% Usage:
+%   drawElectricField(model, mode, part, comp, electrode, method)
 %
-% footer$$
+% Inputs:
+%   model     - Numerical model structure.
+%   mode      - Display mode ('px' for pixels, 'mm' for millimeters).
+%   part      - Part of the field to display ('real', 'imag').
+%   comp      - Component of the field to display ('Ex', 'Ey', 'Em' for modulus).
+%   electrode - 0 to map potential for every electrode, or a specific electrode number to map only that electrode.
+%   method    - (optional) Method of presentation for 3D ('mpr' or 'slice').
+%
+% Outputs:
+%   None
+%
+% Example:
+%   % Assume model is already initialized
+%   drawElectricField(model, 'mm', 'real', 'Ex', 0);
+%   % This will draw the real part of the Ex component of the electric field in millimeters for every electrode.
+%
+% See also: drawPotential and drawSensitivityMap
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function E_cell=drawElectricField(model, mode, part, comp, electrode, varargin)
 temp = comp;

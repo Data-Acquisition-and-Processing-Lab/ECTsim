@@ -1,14 +1,38 @@
-%% drawInvpMap
-% Draws maps od selected parameter for all excitations;
+%% drawInvpMap - Draws maps of selected parameters for the inverse problem.
 %
-% *usage:* |drawInvpMap(model,parameter,mode)|
+% This function draws maps of selected parameters for the inverse problem based on
+% the provided numerical model description.
 %
-% * _model_   - structure with a numerical model description
-% * _mode_  - mm, px
-% * _parameter_  - conductivity, permittivity 
-% * _part_  - min, max, obj ... 
+% Usage:
+%   drawInvpMap(model, parameter, varargin)
 %
-% footer$
+% Inputs:
+%   model     - Structure with numerical model description.
+%   parameter - Parameter to be presented:
+%               * 'permittivity' - Permittivity distribution.
+%               * 'conductivity' - Conductivity distribution.
+%
+% Varargin:
+%   Values are interpreted by drawInterpreter and can be provided in any order:
+%     sets.mode      - 'mm' or 'px'.
+%     sets.method    - 'mpr', 'surf', or 'slice' (only for 3D).
+%     sets.ix        - Indices of mesh elements to present; 0 indicates the whole matrix will be presented.
+%
+% Outputs:
+%   None
+%
+% Example:
+%   % Assume model is already initialized and parameter is 'permittivity'
+%   drawInvpMap(model, 'permittivity', 'mm', 'mpr', 0);
+%   % This will draw the permittivity distribution map in millimeters using the 'mpr' method for the whole matrix.
+%
+% See also: drawInterpreter, drawMap
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function drawInvpMap(model, part, parameter, varargin)
 

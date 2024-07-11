@@ -1,13 +1,33 @@
-%% prepareMaps
-% Create vector of permittivity of the elements in the workspace 
+%% prepareMaps - Prepares three essential maps for discretizing the mesh.
 %
-% *usage:* |model = preapreMaps(model)|
-% 
-% * _model_  - structure with a numerical model description
-% * _eps_map_ - relative epsilon(permittivity) map
-% * _sigma_map_ - sigma(conductivity) map
-% * _patternImage_ - map of elements in the model
-% footer$
+% This function prepares three essential maps required for discretizing the mesh
+% in a numerical model. These maps include the relative permittivity, conductivity,
+% and a pattern image of the elements in the model.
+%
+% Usage:
+%   model = prepareMaps(model)
+%
+% Inputs:
+%   model - Structure with a numerical model description.
+%
+% Outputs:
+%   model - Updated model structure with the following prepared maps:
+%           model.eps_map       - Map of relative permittivity (epsilon).
+%           model.sigma_map     - Map of conductivity (sigma).
+%           model.patternImage  - Map of elements in the model.
+%
+% Example:
+%   % Assume model is already initialized
+%   model = prepareMaps(model);
+%   % This will prepare the necessary maps for mesh discretization in the model.
+%
+% See also: getElementMap and getPermittivityMap and getConductivityMap
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function model = prepareMaps(model)
 

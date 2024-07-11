@@ -1,14 +1,33 @@
-%% drawInterpreter
-% Draws maps od selected parameter for all excitations;
+%% drawInterpreter - Interprets parameters selected by the user for drawing functions.
 %
-% *usage:* |drawMap(model,parameter,mode,part,electrode)|
+% This function interprets parameters selected by the user, which are used by
+% drawMap and drawInvpMap functions.
 %
-% * _model_   - structure with a numerical model description
-% * _mode_  - mm, px
-% * _part_  - real, imag
-% * _electrode_    
+% Usage:
+%   sets = drawInterpreter(varargin)
 %
-% footer$
+% Varargin values can be given by user in any order and are interpreted as follows:
+%   sets.mode      - 'mm' or 'px'.
+%   sets.part      - 'real' or 'imag', applicable to potential, electric field, and sensitivity matrix.
+%   sets.electrode - Number of electrode or pair of electrodes.
+%   sets.method    - 'mpr', 'surf', or 'slice' (only for 3D).
+%   sets.ix        - Indices of mesh elements to present; 0 indicates the whole matrix will be presented.
+%
+% Outputs:
+%   sets - Structure containing interpreted parameter settings.
+%
+% Example:
+%   % Assume varargin contains {'mm', 'real', 1, 'mpr', 0}
+%   sets = drawInterpreter('mm', 'real', 1, 'mpr', 0);
+%   % This will interpret the parameters and return a structure with the settings.
+%
+% See also: drawMap, drawInvpMap
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function sets = drawInterpreter(varargin)
 sets.mode = 'px';

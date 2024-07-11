@@ -1,3 +1,34 @@
+%% oneSliceView - Presents a single slice from a dataset for 2D data presentation.
+%
+% This function presents a single slice from a dataset, primarily used for 2D data presentation.
+% Dragging the right mouse button adjusts the 'w' and 'c' parameters of windowing. This method is
+% used by drawMap and drawInvpMap for 2D data.
+%
+% Usage:
+%   oneSliceView(data, varargin)
+%
+% Inputs:
+%   data - 2D matrix with values to be presented.
+%
+% Varargin (optional):
+%   mesh - Structure with X and Y meshgrid lists of pixel coordinates.
+%
+% Outputs:
+%   None
+%
+% Example:
+%   % Assume data and mesh are already initialized
+%   oneSliceView(data, mesh);
+%   % This will display a single slice from the 2D data using the provided mesh coordinates.
+%
+% See also: drawMap, drawInvpMap
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
+
 function oneSliceView(data, varargin)
     % Create a new figure with a single axis
     

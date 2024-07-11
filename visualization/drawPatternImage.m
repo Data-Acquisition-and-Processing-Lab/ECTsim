@@ -1,12 +1,30 @@
-%% drawPatternImage 
-% draws pattern image with distribution of objects in the model
+%% drawPatternImage - Draws a pattern image representing the distribution of objects in the model.
 %
-% *usage:* |drawPatternImage(model, mode)|
+% This function draws a pattern image representing the distribution of objects in the numerical model.
 %
-% * _model_  - model with a quad tree or sensitivity matrix (maps)
-% * _mode_  -  px, mm (for 2D); surf, mpr (for 3D)
+% Usage:
+%   drawPatternImage(model, mode, method)
 %
-% footer$$  
+% Inputs:
+%   model  - Numerical model structure.
+%   mode   - 'px' for pixels, 'mm' for millimeters.
+%   method - (optional) Presentation method for 3D ('surf', 'mpr', or 'slice').
+%
+% Outputs:
+%   None
+%
+% Example:
+%   % Assume model is already initialized
+%   drawPatternImage(model, 'mm', 'surf');
+%   % This will draw a pattern image in millimeters using the 'surf' presentation method.
+%
+% See also: drawPotential and drawMap
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function drawPatternImage(model,mode, varargin)
 

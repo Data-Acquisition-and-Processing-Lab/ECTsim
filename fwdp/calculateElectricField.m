@@ -1,16 +1,38 @@
-%% calculateElectricField_qt
-% Calculates electric field vectros in the points of
-% nonuniform mesh stored in qt structure;
+%% calculateElectricField - Calculates electric field vectors at nonuniform mesh points.
 %
-% *usage:*     |[model] = calculateElectricField_qt(model)|
-%  
-% _model_     - structure with a numerical model description
+% This function calculates the electric field vectors at points of a nonuniform mesh
+% stored in the qt structure. The electric field components [Ex, Ey] are stored in
+% two matrices: qt.Ex and qt.Ey. The number of rows equals the number of leaves,
+% and the number of columns equals the number of excitations.
 %
-% Electric field components [Ex,Ey] stored in 2 matrices qt.Ex and qt.Ey 
-% number of rows equals a number of leafs, 
-% number of columns equals a number of excitations;
+% Note: varargin is used only by the calculatePotential function.
 %
-% footer$$
+% Usage:
+%   model = calculateElectricField(model, varargin)
+%
+% Inputs:
+%   model    - Structure with a numerical model description.
+%   varargin - Optional parameters (used by calculatePotential):
+%              mode - 'mldivide' (default) or 'bicgstab'. 'bicgstab' is iterative
+%                     and suggested for 3D simulations with an excessive number
+%                     of mesh elements.
+%              tol  - Tolerance value for the 'bicgstab' algorithm, default is 1e-3.
+%
+% Outputs:
+%   model - Updated model structure with calculated electric field components.
+%
+% Example:
+%   % Assume model is already initialized
+%   model = calculateElectricField(model);
+%   % This will calculate and store the electric field vectors in the model.
+%
+% See also: calculatePotential
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function [model] = calculateElectricField(model,varargin)
     dimension = length(fieldnames(model.Workspace));

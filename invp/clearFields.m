@@ -1,3 +1,31 @@
+%% clearFields - Removes specified fields from structures to reduce their memory usage.
+%
+% This function removes the specified fields from structures in order to reduce their
+% memory usage. It is particularly useful for cleaning up models by deleting unnecessary
+% nested fields.
+%
+% Usage:
+%   model = clearFields(model, nestedFieldsToRemove)
+%
+% Inputs:
+%   model                - Cell array containing model names as strings (e.g., {'model1', 'model2'}).
+%   nestedFieldsToRemove - Cell array containing nested field names to be removed (e.g., {'qt.vt', 'dd'}).
+%
+% Outputs:
+%   model - Updated model structure with specified fields removed.
+%
+% Example:
+%   % Assume model is already initialized
+%   nestedFieldsToRemove = {'qt.vt', 'dd'};
+%   model = clearFields(model, nestedFieldsToRemove);
+%   % This will remove the specified nested fields from the model.
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
+
 function model = clearFields(model, nestedFieldsToRemove)
     % clearFields: Function to remove specified fields from structures to reduce their memory usage.
     % models: cell array containing model names as strings (e.g., {'model1', 'model2'})

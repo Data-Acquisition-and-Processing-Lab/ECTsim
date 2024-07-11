@@ -1,12 +1,36 @@
+%% Landweber - Performs the Landweber iterative algorithm.
+%
+% This function performs the Landweber iterative algorithm for solving inverse problems.
+% It iteratively updates the inverse model to minimize the error between the measured
+% and calculated data.
+%
+% Usage:
+%   invp = Landweber(invp, maxiter, alpha)
+%
+% Inputs:
+%   invp    - Structure with an inverse model description.
+%   maxiter - Maximum number of iterations.
+%   alpha   - Relaxation factor.
+%
+% Outputs:
+%   invp.rec - Updated inverse model structure after applying the Landweber iterative algorithm.
+%
+% Example:
+%   % Assume invp is already initialized
+%   maxiter = 100;  % Set the maximum number of iterations
+%   alpha = 0.01;   % Set the relaxation factor
+%   invp = Landweber(invp, maxiter, alpha);
+%   % This will perform the Landweber iterative algorithm on the inverse model.
+%
+% See also: semiLM and LBP
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
+
 function  [rec] = Landweber(invp,maxiter,alpha)
-% performs Landweber algorithm
-%
-% [invp] = Landweber(invp);
-%
-% * _invp_ - structure with inverse model description
-% * _maxiter_ - a max number of iteration
-% * _alpha_ - a relaxation factor values
-% ectsim - Electrical Capacitance Tomography Image Reconstruction Toolbox
 
 rec = invp.min;
 

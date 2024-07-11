@@ -1,13 +1,33 @@
-function  [rec] = LBP(invp)
-% performs Linear Back-Projection algorithm
+%% LBP - Performs the Linear Back-Projection algorithm.
 %
-% [invp] = LBP(invp);
+% This function performs the Linear Back-Projection (LBP) algorithm for solving
+% inverse problems. It updates the inverse model structure by applying the LBP method.
 %
-% ectsim - Electrical Capacitance Tomography Image Reconstruction Toolbox
+% Usage:
+%   invp = LBP(invp)
+%
+% Inputs:
+%   invp - Structure with an inverse model description.
+%
+% Outputs:
+%   invp.rec - Updated inverse model structure after applying the Linear Back-Projection algorithm.
+%
+% Example:
+%   % Assume invp is already initialized
+%   invp = LBP(invp);
+%   % This will perform the Linear Back-Projection algorithm on the inverse model.
+%
+% See also: PINV and Landweber
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
-% if ~isfield(invp, 'rec')
-    rec = invp.min;
-% end
+function  [rec] = LBP(invp)
+
+rec = invp.min;
 
 if invp.real_data
     Kmax = invp.max.C_real;

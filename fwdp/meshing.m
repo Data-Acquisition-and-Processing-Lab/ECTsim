@@ -1,13 +1,27 @@
-%% meshing 
-% Function meshing creates and manages quadtree of image
+%% meshing - Creates and manages a quadtree of an image.
 %
-% *usage:*     |[model] = meshing(model, pixMin, pixMax)|
+% This function constructs and maintains a quadtree structure for an image,
+% which is useful for managing hierarchical spatial data. The function
+% adjusts the mesh based on specified minimum and maximum pixel sizes,
+% optimizing spatial indexing and access.
 %
-% * _model_  -  structure with a numerical model description
-% * _pixMin_ -  min pixel size in a mesh
-% * _pixMax_ -  max pixel size in a mesh
+% Usage:
+%   model = meshing(model, pixMin, pixMax)
 %
-% footer$$
+% Inputs:
+%   model   - Structure with a numerical model description.
+%   pixMin  - Minimum pixel size in the mesh.
+%   pixMax  - Maximum pixel size in the mesh.
+%
+% Example:
+%   model = meshing(model, 1, 4);
+%   % Constructs a quadtree for the model with pixel sizes ranging from 1 to 4.
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function model = meshing(model,pixMin,pixMax)
 

@@ -1,14 +1,43 @@
-%% drawMap
-% Draws maps od selected parameter for all excitations;
+%% drawMap - Draws maps based on selected parameters.
 %
-% *usage:* |drawMap(model,parameter,mode,part,electrode)|
+% This function draws maps based on the selected parameters provided in the numerical model description.
 %
-% * _model_   - structure with a numerical model description
-% * _mode_  - mm, px
-% * _part_  - real, imag
-% * _electrode_    
+% Usage:
+%   drawMap(model, parameter, varargin)
 %
-% footer$
+% Inputs:
+%   model     - Structure with numerical model description.
+%   parameter - Parameter to be presented:
+%               * 'V' - Electric potential distribution.
+%               * 'Em', 'Ex', 'Ey', 'Ez' - Electric field distribution components.
+%               * 'S' - Sensitivity matrix.
+%               * 'pattern' - List of elements in the model.
+%               * 'permittivity', 'epsilon' - Permittivity distribution.
+%               * 'conductivity', 'sigma' - Conductivity distribution.
+%
+% Varargin:
+%   Values are interpreted by drawInterpreter and can be provided in any order:
+%     sets.mode      - 'mm' or 'px'.
+%     sets.part      - 'real' or 'imag', applicable to potential, electric field, and sensitivity matrix.
+%     sets.electrode - Number of electrode or pair of electrodes.
+%     sets.method    - 'mpr', 'surf', or 'slice' (only for 3D).
+%     sets.ix        - Indices of mesh elements to present; 0 indicates the whole matrix will be presented.
+%
+% Outputs:
+%   None
+%
+% Example:
+%   % Assume model is already initialized and parameter is 'V'
+%   drawMap(model, 'V', 'mm', 'real', 0);
+%   % This will draw the electric potential distribution in millimeters for every electrode showing the real part.
+%
+% See also: drawInterpreter, drawInvpMap
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function drawMap(model, parameter, varargin)
     

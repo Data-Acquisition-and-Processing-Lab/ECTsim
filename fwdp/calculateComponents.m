@@ -1,13 +1,34 @@
-%% calculateComponents
-% calculates values of components of measurements ;
+%% calculateComponents - Calculates values of measurement components.
 %
-% *usage:*     |[model] = calculateMeasurements(model)|
-%  
-% _model_     - structure with a numerical model description
+% This function calculates key measurement components, which are then used
+% by the calculateMeasurement function. The calculated components include
+% capacitance, conductivity, and admittance.
 %
-% * 
+% Usage:
+%   model = calculateComponents(model)
 %
-% footer$$
+% Inputs:
+%   model - Structure with a numerical model description.
+%
+% Outputs:
+%   model - Updated model structure with calculated measurement components.
+%           The calculated values include:
+%             model.C - Capacitance.
+%             model.G - Conductivity.
+%             model.Y - Admittance.
+%
+% Example:
+%   % Assume model is already initialized
+%   model = calculateComponents(model);
+%   % This will calculate and store the capacitance, conductivity, and admittance in the model.
+%
+% See also: calculateMeasurement
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function [model] = calculateComponents(model)
     

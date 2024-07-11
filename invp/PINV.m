@@ -1,13 +1,36 @@
-function  [rec] = PINV(invp,tol)
-% performs Moore–Penrose pseudoinverse
+%% PINV - Performs the Moore-Penrose pseudoinverse operation.
 %
-% [invp] = PINV(invp);
+% This function performs the Moore-Penrose pseudoinverse operation for solving
+% inverse problems. It updates the inverse model structure by applying the pseudoinverse
+% method. An optional damping parameter can be provided.
 %
-% ectsim - Electrical Capacitance Tomography Image Reconstruction Toolbox
+% Usage:
+%   invp = PINV(invp, tol)
+%
+% Inputs:
+%   invp - Structure with an inverse model description.
+%   tol  - Damping parameter value (optional).
+%
+% Outputs:
+%   invp.rec - Updated inverse model structure after applying the pseudoinverse operation.
+%
+% Example:
+%   % Assume invp is already initialized
+%   tol = 1e-5;  % Set the optional damping parameter
+%   invp = PINV(invp, tol);
+%   % This will perform the pseudoinverse operation on the inverse model with the specified damping parameter.
+%
+% See also: semiLM and LBP
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
-% if ~isfield(invp, 'rec')
-    rec = invp.min;
-% end
+function  [rec] = PINV(invp,tol)
+
+rec = invp.min;
 
 if invp.real_data
     Kmax = invp.max.C_real;

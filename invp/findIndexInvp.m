@@ -1,12 +1,29 @@
-%% findIndexInvp
-% findIndexInvp finds indices in a coarse mesh.
+%% findIndexInvp - Finds indices in a coarse mesh for the inverse problem.
 %
-% *usage:* |Index = findIndexInvp(modelInvp, element_name)|
-% 
-% * _modelInvp_  - structure with a numerical model description 
-% * _element_name_  - a name of the element 
-% 
-% footer$ 
+% This function finds the indices of a specified element in a coarse mesh
+% used for the inverse problem.
+%
+% Usage:
+%   Index = findIndexInvp(modelInvp, element_name)
+%
+% Inputs:
+%   modelInvp    - Structure with a numerical model description.
+%   element_name - Name of the element.
+%
+% Outputs:
+%   Index - Indices of the specified element in the coarse mesh.
+%
+% Example:
+%   % Assume modelInvp is already initialized and element_name is specified
+%   element_name = 'targetElement';
+%   Index = findIndexInvp(modelInvp, element_name);
+%   % This will return the indices of 'targetElement' in the coarse mesh. 
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 
 function [Index] = findIndexInvp(model, name)

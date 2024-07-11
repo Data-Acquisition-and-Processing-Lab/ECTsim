@@ -1,10 +1,36 @@
-%% calculatePotential 
-% Calculates electric field potential in the points of
-% nonuniform mesh stored in qt structure;
+%% calculatePotential - Calculates electric field potential at nonuniform mesh points.
 %
-% *usage:*     |[qt] = calculatePotential(qt)|
-% 
-% footer$$
+% This function calculates the electric field potential at points of a nonuniform mesh
+% stored in the qt structure. For 3D simulations in MATLAB that result in an "out of memory"
+% error, an iterative calculation can be used by setting the mode to 'bicgstab'.
+%
+% Usage:
+%   model = calculatePotential(model, mode, tol)
+%
+% Inputs:
+%   model - Structure with a numerical model description.
+%   mode  - 'mldivide' (default) or 'bicgstab'. 'bicgstab' is iterative and suggested
+%           for 3D simulations with an excessive number of mesh elements.
+%   tol   - Tolerance value for the 'bicgstab' algorithm, default is 1e-3.
+%
+% Outputs:
+%   model - Updated model structure with calculated electric field potential.
+%
+% Example:
+%   % Assume model is already initialized
+%   mode = 'bicgstab';  % Use iterative calculation for large 3D simulations
+%   tol = 1e-3;         % Set tolerance for the iterative solver
+%   model = calculatePotential(model, mode, tol);
+%   % This will calculate and store the electric field potential in the model.
+%
+% See also: calculateElectricField
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
+
 
 function model = calculatePotential(model,mode,tol)
     fprintf('Calculating potential ...... '); tic;

@@ -1,23 +1,35 @@
-%% boundaryVoltageVector
-% * finds points with boundary conditions;
-% * finds points with unknown potential;
-% * sets the voltage on electrodes and screen (Dirichlet); generates a linear vector (1D) 
-%   of voltage distribution for given electrode number;
-%   the matrix B is built using the collumn vectors of boundary voltage;
-%   IMPORTANT: the voltage can be reduced slowly at the tips of the electrodes
-%   to avoid singular points on the sharp edges using the smotting
-%   coefficient;
-% * write result to the model struct
+%% boundaryVoltageVector - Identifies boundary condition points and sets electrode voltages.
 %
-% *usage:* |[model] = boundaryVoltageVector(model, varargin)|
+% This function identifies points with boundary conditions, locates points with
+% unknown potential, sets the voltage on electrodes and screens (Dirichlet conditions),
+% and generates a linear vector (1D) of voltage distribution for a given electrode number.
+% The matrix B is constructed using the column vectors of boundary voltage.
 %
-% * _model_     - structure with a numerical model description
+% Important: The voltage can be gradually reduced at the tips of the electrodes to avoid
+% singular points at sharp edges using a smoothing coefficient.
 %
-% If varargin: 
+% Usage:
+%   model = boundaryVoltageVector(model, varargin)
 %
-% * _scoeff_    - optional value in the range (0; 0.5> which controls the smoothness
+% Inputs:
+%   model    - Structure with a numerical model description.
+%   varargin - Optional parameters:
+%              scoeff - A value in the range (0, 0.5] that controls the smoothness.
 %
-% footer$$
+% Outputs:
+%   model - Updated model structure with applied boundary voltage conditions.
+%
+% Example:
+%   % Assume model is already initialized
+%   scoeff = 0.1;  % Define smoothing coefficient
+%   model = boundaryVoltageVector(model, scoeff);
+%   % This will set the boundary voltage with the specified smoothing coefficient.
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function[model] = boundaryVoltageVector(model, varargin)
 

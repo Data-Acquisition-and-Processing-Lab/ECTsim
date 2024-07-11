@@ -1,14 +1,31 @@
-%% upscaleModel 
-% upscaleModel interpolates permittivity map to finer qt mesh;
+%%  upscaleModel - Interpolates the permittivity map to a finer qt mesh.
 %
-% This function requires expanding of FOV data (extrapolating at FOV's edges). 
+% This function interpolates the permittivity map to a finer quadtree (qt) mesh.
+% It requires the expansion of Field of View (FOV) data, extrapolating at the edges
+% of the FOV to ensure accurate interpolation.
 %
-% *usage:* |[model] = upscaleModel(eps_map, model)|
+% Usage:
+%   model = upscaleModel(eps_map, model)
 %
-% * _eps_map_ - inverse problem mesh
-% * _model_ - structure with a numerical model description
+% Inputs:
+%   eps_map - Complex permittivity map from an inverse problem mesh.
+%   model   - Structure with a numerical model description.
 %
-% footer$$
+% Outputs:
+%   model - Updated model structure with the interpolated permittivity map.
+%
+% Example:
+%   % Assume eps_map and model are already initialized
+%   model = upscaleModel(eps_map, model);
+%   % This will interpolate the permittivity map to a finer qt mesh in the model.
+%
+% See also: downscaleModel
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function [model] = upscaleModel(model, map)
 

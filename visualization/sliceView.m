@@ -1,3 +1,35 @@
+%% sliceView - Presents a single image slice from 3D data (a slice across the Z-axis).
+%
+% This function presents a single image slice from 3D data. Users can view different cross-sections
+% by clicking and dragging the left mouse button from left to right or bottom to top. Dragging the
+% right mouse button adjusts the 'w' and 'c' parameters of windowing. This method is used by
+% drawMap and drawInvpMap for 3D data.
+%
+% Usage:
+%   sliceView(data, varargin)
+%
+% Inputs:
+%   data - 3D matrix with values to be presented.
+%
+% Varargin (optional):
+%   mesh - Structure with X, Y, and Z meshgrid lists of pixel coordinates.
+%
+% Outputs:
+%   None
+%
+% Example:
+%   % Assume data and mesh are already initialized
+%   sliceView(data, mesh);
+%   % This will display a single image slice from the 3D data using the provided mesh coordinates.
+%
+% See also: drawMap, drawInvpMap
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
+
 function sliceView(data, varargin)
     % Create a new figure with a single axis
     

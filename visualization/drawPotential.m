@@ -1,15 +1,32 @@
-%% drawPotential 
-% Draws potential maps for all excitations;
+%% drawPotential - Draws potential maps for selected excitations.
 %
-% *usage:* |drawPotential(model,mode)|
+% This function draws potential maps for selected excitations in the numerical model.
 %
-% * _model_   - structure with a numerical model description
-% * _part_  - real, imag
-% * _electrode_    -  0 potential maps for every electrode, 
-%                    >0 only selected electrode
+% Usage:
+%   drawPotential(model, mode, part, electrode, method)
 %
+% Inputs:
+%   model     - Numerical model structure.
+%   mode      - 'px' for pixels, 'mm' for millimeters.
+%   part      - 'real' or 'imag'.
+%   electrode - 0 for potential maps of every electrode, >0 for only the selected electrode.
+%   method    - (optional) Presentation method for 3D ('mpr' or 'slice').
 %
-% footer$
+% Outputs:
+%   None
+%
+% Example:
+%   % Assume model is already initialized
+%   drawPotential(model, 'mm', 'real', 0, 'mpr');
+%   % This will draw the real part of the potential map in millimeters for every electrode using the 'mpr' method.
+%
+% See also: drawMap, drawInvpMap
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function [V_cell]=drawPotential(model, mode, part, electrode, varargin)
 if numel(varargin)

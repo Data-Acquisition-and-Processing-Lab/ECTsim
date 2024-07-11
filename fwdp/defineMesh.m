@@ -1,21 +1,31 @@
-%% defineMesh 
-% Distributes points (pixels) over the workspace.
-% It creates two variables - matrices X and Y storing respectively
-% x and y co-ordinates that represent the grid. 
-% Values at the input are numbers of points spread along the width and
+%% defineMesh - Distributes points across the workspace.
+% 
+% This function distributes points (pixels) across the workspace and
+% creates two matrices—X and Y—that store x and y coordinates, representing
+% the grid. The inputs are numbers of points spread along the width and
 % height of the workspace.
 %
-% # nargin = 3 ->2D
-% # nargin = 4 ->3D
+% Usage:
+%   [model] = defineMesh(model, widthPoints, heightPoints, depthPoints)
 %
-% *usage:* |[model] = defineMesh(model,widthPoints,heightPoints,(depthPoints))|
+% Inputs:
+%   model        - Structure with a numerical model description.
+%   widthPoints  - Number of points along the width of the mesh.
+%   heightPoints - Number of points along the height of the mesh.
+%   depthPoints  - Number of points along the depth of the mesh (only for 3D).
 %
-% * _model_     - structure with a numerical model description
-% * _widthPoints_        -  mesh width
-% * _heightPoints_       -  mesh height
-% * _depthPoints_        -  mesh depth
+% Example:
+%   model = defineMesh(model, 100, 200);
+%   % For 2D with 100 points along width and 200 points along height.
 %
-% footer$$
+%   model = defineMesh(model, 100, 200, 50);
+%   % For 3D with additional 50 points along depth.
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function [model]=defineMesh(varargin)
 

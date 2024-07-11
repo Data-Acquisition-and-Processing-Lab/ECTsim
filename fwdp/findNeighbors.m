@@ -1,12 +1,24 @@
-%% findNeighbors 
-% Finds pixels (4 neighbors in 2D and 6 in 3D) near a pixel with a given index
+%% findNeighbors - Finds pixels near a given pixel within a quadtree structure.
 %
-% *usage:*     |[QT] = findNeighbors(QT,index)|
-%  
-% * _QT_     - quadtree structure with a numerical model description
-% * _index_  - a pixel's index for which the neighbors are searched
+% This function locates the neighboring pixels around a specified pixel. It returns
+% the four direct neighbors in 2D or the six face-connected neighbors in 3D.
 %
-% footer$$
+% Usage:
+%   QT = findNeighbors(QT, index)
+%
+% Inputs:
+%   QT    - Quadtree structure with a numerical model description.
+%   index - Index of the pixel for which neighbors are searched.
+%
+% Example:
+%   QT = findNeighbors(QT, 150);
+%   % Returns neighbors of the pixel at index 150 in the quadtree structure.
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function QT = findNeighbors(QT,index)
 %UNTITLED Summary of this function goes here

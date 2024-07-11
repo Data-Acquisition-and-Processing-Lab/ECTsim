@@ -1,12 +1,29 @@
-%% getPermittivityMap
-% Create vector of permittivity of the elements in the workspace 
+%% getPermittivityMap - Creates a vector of permittivity values for the elements in the workspace.
 %
-% *usage:* |[epsMap] = getPermittivityMap(model)|
-% 
-% * _model_  - structure with a numerical model description
-% * _epsMap_ - relative epsilon(permittivity) map
+% This function creates a vector of permittivity values for the elements in the workspace,
+% providing a map of relative permittivity values.
 %
-% footer$
+% Usage:
+%   epsMap = getPermittivityMap(model)
+%
+% Inputs:
+%   model - Structure with a numerical model description.
+%
+% Outputs:
+%   epsMap - Map of relative permittivity values.
+%
+% Example:
+%   % Assume model is already initialized
+%   epsMap = getPermittivityMap(model);
+%   % This will return the permittivity map for the elements in the workspace.
+%
+% See also: getElementMal and getConductivityMap
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function [epsMap] = getPermittivityMap(model)
 

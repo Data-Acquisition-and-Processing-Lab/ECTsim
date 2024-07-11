@@ -1,18 +1,30 @@
-%% sensorElectrodePairs 
-% sets number of electrode numbers in the electrode pairs
-% sets vector of excitation voltages on excitation and receiving electrodes
+%% sensorElectrodePairs - Sets the number of electrode pairs and assigns excitation voltages.
 %
-% *usage:* |[model] = sensorElectrodePairs(model)|
+% This function sets the number of electrode pairs and assigns excitation voltages to both
+% excitation and receiving electrodes. It requires some sensor fields to be set before running.
 %
-% _model_    - structure with model description
-%             (function requires some sensor field to be set befor running:
-%             sensor.measurements_all)
+% Usage:
+%   model = sensorElectrodePairs(model)
 %
-% footer$$
+% Inputs:
+%   model - Structure with a model description. This function requires some sensor fields to be set before running: sensor.measurements_all.
+%
+% Outputs:
+%   model - Updated model structure with the electrode pairs and excitation voltages set.
+%
+% Example:
+%   % Assume model is already initialized and sensor fields are set
+%   model = sensorElectrodePairs(model);
+%   % This will set the number of electrode pairs and assign excitation voltages in the model.
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function [model] = sensorElectrodePairs(model)
 
-% ---TODO: przeniesione z setElectrodes
 if model.measurements_all==1 % electrode combinations
     model.measurement_count = model.Electrodes.num*(model.Electrodes.num-1);  % number of measurement 
 else

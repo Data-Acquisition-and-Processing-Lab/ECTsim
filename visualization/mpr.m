@@ -1,3 +1,36 @@
+%% mpr - Multiplanar reconstruction (MPR) for 3D data presentation.
+%
+% Multiplanar reconstruction (MPR) is a method for 3D data presentation that displays three
+% cross-sections (xy, xz, yz) in separate images. Users can change the displayed image by
+% clicking in the desired location with the left mouse button, where crosshairs indicate
+% the current position. Dragging the right mouse button adjusts the 'w' and 'c' parameters
+% of windowing. This method can be used by drawMap and drawInvpMap for 3D data.
+%
+% Usage:
+%   mpr(data, varargin)
+%
+% Inputs:
+%   data - 3D matrix with values to be presented.
+%
+% Varargin (optional):
+%   mesh - Structure with X, Y, and optionally Z meshgrid lists of pixel coordinates.
+%
+% Outputs:
+%   None
+%
+% Example:
+%   % Assume data and mesh are already initialized
+%   mpr(data, mesh);
+%   % This will display the multiplanar reconstruction of the 3D data using the provided mesh coordinates.
+%
+% See also: drawMap, drawInvpMap
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
+
 function mpr(data, varargin)
     % Create a new figure with tiled layout
 

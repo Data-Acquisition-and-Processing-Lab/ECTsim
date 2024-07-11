@@ -1,14 +1,30 @@
-%% addNoise
-% adds noise to measurements ;
+%% addNoise - Adds noise to measurements based on the specified signal-to-noise ratio.
 %
-% *usage:*     |[model] = addNoise(model)|
-%  
-% _model_     - structure with a numerical model description
+% This function introduces noise into the measurements of a numerical model,
+% based on a specified Signal-to-Noise Ratio (SNR). This is useful for simulating
+% real-world measurement conditions.
 %
-% * SNRdb - signal to noise ratio of measurement
+% Usage:
+%   model = addNoise(model, SNRdb)
 %
-% footer$$
-
+% Inputs:
+%   model - Structure with a numerical model description.
+%   SNRdb - Signal to Noise Ratio (SNR) in decibels for the measurement.
+%
+% Outputs:
+%   model - Updated model structure with added noise in the measurements.
+%
+% Example:
+%   % Assume model is already initialized
+%   SNRdb = 20;  % Define the desired SNR in decibels
+%   model = addNoise(model, SNRdb);
+%   % This will add noise to the model's measurements with the specified SNR.
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function  [model] = addNoise(model,SNRdb)
     fprintf('Adding noise to measurement ...... '); tic;

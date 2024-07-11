@@ -1,20 +1,36 @@
-%% qt_defineMeshInvp 
-% distributes points (pixels) over the workspace
-% It creates two variables - matrices X and Y storing respectively
-% x and y co-ordinates that represent the grid 
-% Values at the input are numbers of points spread along the width and height of the workspace 
+%% defineMeshInvp - Distributes points over the workspace to create a mesh grid.
 %
-% # nargin = 3 ->2D
-% # nargin = 4 ->3D
+% This function distributes points (pixels) over the workspace and creates two matrices,
+% X and Y, which store the x and y coordinates representing the grid. The input values
+% specify the number of points spread along the width and height of the workspace.
 %
-% *usage:* |[model] = qt_defineMeshInvp(model,widthPoints,heightPoints,(depthPoints))|
+% Usage:
+%   model = defineMeshInvp(model, widthPoints, heightPoints, depthPoints)
 %
-% * _model_     - structure with a numerical model description
-% * _widthPoints_        -  mesh width
-% * _heightPoints_       -  mesh height
-% * _depthPoints_        -  mesh depth
+% Inputs:
+%   model        - Structure with a numerical model description.
+%   widthPoints  - Number of points along the width of the mesh.
+%   heightPoints - Number of points along the height of the mesh.
+%   depthPoints  - Number of points along the depth of the mesh (optional, for 3D).
 %
-% footer$$
+% Outputs:
+%   model - Updated model structure with the defined mesh grid.
+%
+% Example:
+%   % Assume model is already initialized
+%   widthPoints = 100;
+%   heightPoints = 200;
+%   depthPoints = 50; % For 3D
+%   model = defineMeshInvp(model, widthPoints, heightPoints, depthPoints);
+%   % This will create a mesh grid with the specified number of points along each dimension.
+%
+% See also: defineMesh
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function [model]=defineMeshInvp(modelInput,widthPoints, heightPoints, varargin)
 

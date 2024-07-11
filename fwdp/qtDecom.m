@@ -1,17 +1,37 @@
-%% qtDecom 
-% Function to create quadtree structure
+%% qtDecom - Creates a quadtree structure.
 %
-% *usage:* qt = qtDecom(QT, A, param, pixMin, pixMax)
+% This function constructs a quadtree structure, which is utilized in meshing
+% operations to dynamically adjust mesh resolution based on specified criteria.
 %
-% * _QT_ - structure with a numerical model description necessary to
-% create a quadtree
-% * _A_ - a map used for formation a uniform mesh
-% * _param_ - measure of non-uniformity, unused now
-% * _pixMin_ - min pixel size in a mesh
-% * _pixMax_ -  max pixel size in a mesh
-% * _qt_ -  quadtree structure with a numerical model description
+% Usage:
+%   qt = qtDecom(QT, A, param, pixMin, pixMax)
 %
-% footer$$
+% Inputs:
+%   QT     - Structure with a numerical model description necessary to create a quadtree.
+%   A      - A map used for forming a uniform mesh.
+%   param  - Measure of non-uniformity, guiding the decomposition process.
+%   pixMin - Minimum pixel size in the mesh.
+%   pixMax - Maximum pixel size in the mesh.
+%
+% Outputs:
+%   qt     - Quadtree structure with a numerical model description.
+%
+% Example:
+%   % Assume QT is already initialized and A is defined
+%   param = 0.1;  % Define non-uniformity threshold
+%   pixMin = 1;
+%   pixMax = 4;
+%   qt = qtDecom(QT, A, param, pixMin, pixMax);
+%   % This will create a quadtree structure for A using the specified parameters.
+%
+% See also meshing, qtCut
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
+
 
 
 function qt = qtDecom(QT, A, param, pixMin, pixMax)

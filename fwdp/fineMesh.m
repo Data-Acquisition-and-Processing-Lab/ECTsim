@@ -1,17 +1,27 @@
-%% fineMesh 
-% Modifies a pattern image used by the meshing algorithm.
-% Generation of a pattern in a given geometrical element makes a finer mesh
-% in this area.
-% A chessboard pattern is genereted in the selected element of the space. 
-% 
-% *usage:* |model = fineMesh(model,element,elementSize,draw)|
+%% fineMesh - Modifies a pattern image used by the meshing algorithm.
 %
-% * _model_        - structure with a numerical model description
-% * _element_      - a name of the element
-% * _elementSize_  - determines the mesh size
-% * _draw_         - 0: dont draw the mesh, 1: draw the mesh 
+% This function adjusts a pattern within a specific geometrical element
+% to create a finer mesh in that area. It typically generates a chessboard
+% pattern in the selected element of the space to enhance mesh resolution.
 %
-% footer$$
+% Usage:
+%   model = fineMesh(model, element, elementSize)
+%
+% Inputs:
+%   model       - Structure with a numerical model description.
+%   element     - Name of the element where the mesh will be refined.
+%   elementSize - Numerical value that determines the size of the mesh.
+%
+% Example:
+%   model = fineMesh(model, 'Area1', 1);
+%   % Refines the mesh in 'Area1' with the specified element size.
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
+
 
 function model = fineMesh(model,element,elementSize)
     dimension = length(fieldnames(model.Workspace));

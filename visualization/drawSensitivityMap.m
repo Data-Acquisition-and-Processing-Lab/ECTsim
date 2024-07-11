@@ -1,15 +1,32 @@
-%% drawSensitivityMap 
-% draws sensitivity maps for given electrodes
+%% drawSensitivityMap - Draws sensitivity maps for specified electrodes.
 %
-% *usage:* |drawSensitivityMap(model, data, draw, part)|
+% This function draws sensitivity maps for specified electrodes in the numerical model.
 %
-% * _model_  - model with a quad tree or sensitivity matrix (maps)
-% * _mode_  -  px, mm (for 2D); slice, mpr (for 3D)
-% * _part_  - real, imag
-% * _draw_   - application electrode number (combinations with this electrode are selected)
-%            or [e1 e2] pair of electrodes
+% Usage:
+%   drawSensitivityMap(model, mode, part, draw, method)
 %
-% footer$$  
+% Inputs:
+%   model  - Numerical model structure.
+%   mode   - 'px' for pixels, 'mm' for millimeters.
+%   part   - 'real' or 'imag'.
+%   draw   - Application electrode number or a pair of electrodes [e1, e2], e.g., [2, 13].
+%   method - (optional) Presentation method for 3D ('mpr' or 'slice').
+%
+% Outputs:
+%   None
+%
+% Example:
+%   % Assume model is already initialized
+%   drawSensitivityMap(model, 'mm', 'real', [2, 13], 'mpr');
+%   % This will draw the real part of the sensitivity map in millimeters for the specified pair of electrodes using the 'mpr' method.
+%
+% See also: drawMap, drawInvpMap
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function drawSensitivityMap(model, mode, part, draw, varargin)
 

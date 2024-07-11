@@ -1,19 +1,34 @@
-%% calculateSensitivityMaps
-% calculates sensitivity in the points of nonuniform mesh stored in qt structure;
+%% ccalculateSensitivityMaps - Calculates sensitivity at nonuniform mesh points.
 %
-% *usage:*     |[model] = calculateSensitivityMaps(model)|
-%  
-% _model_     - structure with a numerical model description
+% This function calculates the sensitivity at points of a nonuniform mesh stored in the
+% qt structure using a scalar product with the conjugate. The sensitivity is stored in
+% sparse vectors S(elem,pair), where the number of rows equals the number of leaves
+% and the number of columns equals the number of electrode pairs. The calculated
+% sensitivity depends on the size of the pixel and requires normalization before
+% interpolation to a uniform mesh.
 %
-% * sparse vectors S(elem,pair) 
-% * number of rows equals a number of leafs, 
-% * number of columns equals the number of electrode pairs;
-% * calculated sensitivity depends on the size of the pixel;
-% * the display requires normalization before interpolation to uniform mesh;
+% Usage:
+%   model = calculateSensitivityMaps(model)
 %
-% * sensitivity is calculated using scalar product with conjugate (!!!)
+% Inputs:
+%   model - Structure with a numerical model description.
 %
-% footer$$
+% Outputs:
+%   model - Updated model structure with calculated sensitivity maps.
+%
+% Example:
+%   % Assume model is already initialized
+%   model = calculateSensitivityMaps(model);
+%   % This will calculate and store the sensitivity maps in the model.
+%
+% See also: calculateElectricField and calculatePotential
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
+
 
 function [model] = calculateSensitivityMaps(model)
     

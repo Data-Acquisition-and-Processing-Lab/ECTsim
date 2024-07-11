@@ -1,12 +1,40 @@
+%% semiLM - Performs the semilinear Levenberg-Marquardt algorithm.
+%
+% This function performs the semilinear Levenberg-Marquardt algorithm for solving
+% inverse problems. It iteratively updates the inverse model to minimize the error
+% between the measured and calculated data.
+%
+% Usage:
+%   invp = semiLM(invp, maxiter, alpha, lambda, maxUpdate)
+%
+% Inputs:
+%   invp      - Structure with an inverse model description.
+%   maxiter   - Maximum number of iterations.
+%   alpha     - Relaxation factor.
+%   lambda    - Damping parameter value.
+%   maxUpdate - Maximum number of sensitivity matrix updates.
+%
+% Outputs:
+%   invp.rec - Updated inverse model structure after applying the semilinear Levenberg-Marquardt algorithm.
+%
+% Example:
+%   % Assume invp is already initialized
+%   maxiter = 100;    % Set the maximum number of iterations
+%   alpha = 0.01;     % Set the relaxation factor
+%   lambda = 1e-2;    % Set the damping parameter
+%   maxUpdate = 10;   % Set the maximum number of sensitivity matrix updates
+%   invp = semiLM(invp, maxiter, alpha, lambda, maxUpdate);
+%   % This will perform the semilinear Levenberg-Marquardt algorithm on the inverse model.
+%
+% See also: Landweber and LBP and PINV
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
+
 function  [rec] = semiLM(invp,maxiter,alpha,lambda,maxUpdate)
-% performs semilinear Levenberg Marquardt algorithm
-%
-% [invp] = semiLM(invp);
-%
-% * _invp_ - structure with inverse model description
-% * _maxiter_ - a max number of iteration
-% * _alpha_ - a relaxation factor values
-% ectsim - Electrical Capacitance Tomography Image Reconstruction Toolbox
 
 stop = 1e-5;
 

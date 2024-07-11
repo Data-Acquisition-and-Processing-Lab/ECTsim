@@ -1,15 +1,31 @@
-%% getElementMap
+%% getElementMap - Generates a pixel map of elements in the model.
 %
-% getElementMap generates a pixel map of elements in the model. Pixel 
-% values is equal to the unique number of the element. 
+% This function generates a pixel map of elements in the model, where pixel values correspond
+% to the unique number of each element. It creates two matrices: epsilon_map and sigma_map,
+% containing the epsilon and sigma values for the model, respectively.
 %
-% *usage:*     |[epsilon_map, sigma_map] = getElementMap(model)|
-%  
-% * _model_       - structure with a numerical model description
-% * _epsilon_map_ - 2D matrix with epsilon values in the described model
-% * _sigma_map_   - 2D matrix with sigma values in the described model
+% Usage:
+%   [epsMap, sigmaMap] = getElementMap(model)
 %
-% footer$$
+% Inputs:
+%   model - Structure with a numerical model description.
+%
+% Outputs:
+%   epsMap - 2D matrix containing epsilon values for the model.
+%   sigmaMap   - 2D matrix containing sigma values for the model.
+%
+% Example:
+%   % Assume model is already initialized
+%   [epsMap, sigmaMap] = getElementMap(model);
+%   % This will return the epsilon and sigma maps for the elements in the model.
+%
+% See also: getConductivityMap and getPermittivityMap
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 
 function [epsMap,sigmaMap] = getElementMap(model)

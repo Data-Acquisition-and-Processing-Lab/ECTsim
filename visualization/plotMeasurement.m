@@ -1,16 +1,32 @@
-%% plotMeasurement 
-% plots mutual measurements  of electrodes 
-% 
-% *usage:* |[] = plotMeasurements(mode, part, index, nameList, varargin)|
+%% plotMeasurements - Plots mutual measurements of electrodes with a maximum of 8 plots at a time.
 %
-% * _mode_  - linear, log
-% * _part_  - C, G
-% * _index_ - range of dispalyed pairs of electrodes - 1:30
-% * _nameList_ - listo of names for capacitances vectors used in legend - ['min';'max']
-% * -varargin-  - capacitances vectors, max three
-% * maximally 8 plots  
+% This function plots mutual measurements of electrodes, with a maximum of 8 plots displayed at a time.
 %
-% footer$$
+% Usage:
+%   plotMeasurements(mode, part, index, modelList, nameList)
+%
+% Inputs:
+%   mode      - Display mode ('linear', 'log').
+%   part      - Type of measurement ('C' for capacitance, 'G' for conductance).
+%   index     - Range of displayed pairs of electrodes (e.g., [1:31]).
+%   modelList - List of models (e.g., {modelMin, modelMax}).
+%   nameList  - (optional) Names for capacitance vectors used in legends (e.g., {'min', 'max'}); defaults to model1, model2, etc., if not provided.
+%
+% Outputs:
+%   None
+%
+% Example:
+%   % Assume modelList is already initialized
+%   plotMeasurements('linear', 'C', [1:31], {modelMin, modelMax}, {'min', 'max'});
+%   % This will plot the capacitance measurements for the specified range of electrode pairs in linear mode with custom legends.
+%
+% See also: plotNorm
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function [] = plotMeasurement(mode, part, index, modelList, varargin)
 if(numel(varargin))

@@ -1,12 +1,29 @@
-%% getConductivityMap
-% Create vector of conductivity of the elements in the workspace 
+%% getConductivityMap - Creates a vector of conductivity values for the elements in the workspace.
 %
-% *usage:* |[sigmaMap] = getConductivityMap(model)|
-% 
-% * _model_  - structure with a numerical model description
-% * _sigmaMap_ - map of eps" = sigma/(2*pi*f*eps0)
+% This function creates a vector of conductivity values for the elements in the workspace,
+% normalized by 2πfε₀.
 %
-% footer$
+% Usage:
+%   sigmaMap = getConductivityMap(model)
+%
+% Inputs:
+%   model - Structure with a numerical model description.
+%
+% Outputs:
+%   sigmaMap - Vector of conductivity values normalized by 2πfε₀.
+%
+% Example:
+%   % Assume model is already initialized
+%   sigmaMap = getConductivityMap(model);
+%   % This will return the conductivity map for the elements in the workspace.
+%
+% See also: getPermittivityMap and getElementMap
+%
+% ------------------------------------------------------------------------
+% This is part of the ECTsim toolbox.
+% Questions? Contact us at damian.wanta@pw.edu.pl
+% Visit our homepage: https://ectsim.ire.pw.edu.pl/
+% ------------------------------------------------------------------------
 
 function [sigmaMap] = getConductivityMap(model)
 
