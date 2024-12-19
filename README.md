@@ -8,7 +8,7 @@ MATLAB toolbox for numerical modeling and image reconstruction in electrical tom
 - Dr. Jacek Kryszyn
 
 ### Additional Contributors
-- Mateusz Stępniewski
+- Mateusz Szczęsny
 - Oliwia Makowiecka
 - Aleksandra Kot
 
